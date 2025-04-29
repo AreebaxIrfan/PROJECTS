@@ -1,0 +1,396 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f9fb;
+}
+
+/* CSS Variables */
+:root {
+    --primary-color: #1e3a5f; /* Navy blue for headings */
+    --accent-color: #4682b4; /* Muted steel blue for highlights */
+    --sidebar-bg: #34495e; /* Dark slate for sidebar */
+    --background-color: #ffffff;
+    --text-color: #444;
+    --link-color: #2a6496;
+    --border-radius: 8px;
+    --shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+/* Resume Wrapper */
+.resume-wrapper {
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+/* Resume Container */
+.resume-container {
+    display: flex;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background: var(--sidebar-bg);
+    color: #fff;
+    padding: 2rem;
+}
+
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    margin: 0 auto 1.5rem;
+    display: block;
+    transition: var(--transition);
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(70, 130, 180, 0.3);
+}
+
+.sidebar-content {
+    text-align: center;
+}
+
+.sidebar h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contact Info */
+.contact-info {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.contact-info li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.contact-info i {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    font-size: 1rem;
+    color: var(--accent-color);
+    text-align: center;
+    line-height: 24px;
+}
+
+.contact-info span, .contact-info a {
+    color: #fff;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-info a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.sidebar-section {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.sidebar-section h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.25rem;
+}
+
+.sidebar-section ul {
+    list-style: none;
+}
+
+.sidebar-section ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+.sidebar-section ul li::before {
+    content: '◆';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* Main Content */
+.main-content {
+    width: 70%;
+    padding: 2.5rem;
+    background: var(--background-color);
+}
+
+.resume-section {
+    margin-bottom: 2.5rem;
+}
+
+.resume-section h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.resume-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+.intro-section p {
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 5px;
+    border-left: 4px solid var(--accent-color);
+}
+
+.resume-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border-radius: 5px;
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.resume-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.resume-item p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* Download Button */
+.download-button {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.download-button button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.download-button button:hover {
+    background-color: #3a6b9a;
+}
+
+/* Form Styling (Unchanged for index.html) */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-section {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"] {
+    padding: 0.5rem;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(70, 130, 180, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+button:hover {
+    background-color: #3a6b9a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-container {
+        flex-direction: column;
+    }
+
+    .sidebar, .main-content {
+        width: 100%;
+    }
+
+    .sidebar {
+        padding: 1.5rem;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.8rem;
+    }
+
+    .resume-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .contact-info li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container, .resume-wrapper {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .sidebar h1 {
+        font-size: 1.6rem;
+    }
+
+    .resume-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .resume-item p, .intro-section p {
+        font-size: 0.9rem;
+    }
+
+    .download-button button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print Styles for PDF */
+@media print {
+    body {
+        background: #fff;
+    }
+
+    .resume-wrapper {
+        margin: 0;
+    }
+
+    .resume-container {
+        box-shadow: none;
+        border-radius: 0;
+        flex-direction: row;
+    }
+
+    .sidebar {
+        background: #f9f9f9;
+        color: #333;
+    }
+
+    .sidebar h1, .contact-info span, .contact-info a {
+        color: var(--primary-color);
+    }
+
+    .contact-info i {
+        color: #333;
+    }
+
+    .profile-pic {
+        border: 2px solid #333;
+    }
+
+    .intro-section p, .resume-item {
+        background: none;
+        border-left: 2px solid var(--accent-color);
+        box-shadow: none;
+    }
+
+    .resume-section h2::after {
+        background: #333;
+    }
+
+    .download-button {
+        display: none;
+    }
+}

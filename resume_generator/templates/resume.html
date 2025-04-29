@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="resume-wrapper">
+        <div class="resume-container">
+            <div class="sidebar">
+                {% if data.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + data.image) }}" alt="Profile Picture" class="profile-pic">
+                {% endif %}
+                <div class="sidebar-content">
+                    <h1>{{ data.name }}</h1>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>{{ data.email }}</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>{{ data.phone }}</span>
+                        </li>
+                        {% if data.linkedin %}
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                                <a href="{{ data.linkedin }}" target="_blank">LinkedIn Profile</a>
+                            </li>
+                        {% endif %}
+                        {% if data.website %}
+                            <li>
+                                <i class="fas fa-globe"></i>
+                                <a href="{{ data.website }}" target="_blank">Portfolio</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <div class="sidebar-section">
+                        <h2>Skills</h2>
+                        <ul>
+                            {% for skill in data.skills %}
+                                <li>{{ skill }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-section">
+                        <h2>Languages</h2>
+                        <ul>
+                            {% for lang in data.languages %}
+                                <li>{{ lang }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <section class="resume-section intro-section">
+                    <h2>Professional Summary</h2>
+                    <p>{{ data.intro }}</p>
+                </section>
+                <section class="resume-section">
+                    <h2>Education</h2>
+                    {% for edu in data.education %}
+                        <div class="resume-item">
+                            <p>{{ edu }}</p>
+                        </div>
+                    {% endfor %}
+                </section>
+                <section class="resume-section">
+                    <h2>Work Experience</h2>
+                    {% for exp in data.experience %}
+                        <div class="resume-item">
+                            <p>{{ exp }}</p>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+        <div class="download-button">
+            <button onclick="window.print()">Download as PDF</button>
+        </div>
+    </div>
+</body>
+</html>

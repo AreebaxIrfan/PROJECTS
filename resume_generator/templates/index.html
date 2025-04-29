@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Generator</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <!-- Personal Info -->
+            <section class="form-section">
+                <h2>Personal Information</h2>
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="linkedin">LinkedIn Profile URL:</label>
+                <input type="url" id="linkedin" name="linkedin" required>
+                <label for="website">Website/Portfolio URL (Optional):</label>
+                <input type="url" id="website" name="website">
+                <label for="intro">Professional Summary (Intro):</label>
+                <textarea id="intro" name="intro" placeholder="e.g., Results-driven software engineer with 5 years of experience..." required></textarea>
+                <label for="image">Profile Picture (PNG/JPG):</label>
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+            </section>
+
+            <!-- Education -->
+            <section class="form-section">
+                <h2>Education</h2>
+                <div id="education-fields">
+                    <textarea name="education[]" placeholder="e.g., BSc Computer Science, XYZ University, 2020" required></textarea>
+                </div>
+                <button type="button" onclick="addField('education')">Add Education</button>
+            </section>
+
+            <!-- Experience -->
+            <section class="form-section">
+                <h2>Work Experience</h2>
+                <div id="experience-fields">
+                    <textarea name="experience[]" placeholder="e.g., Software Engineer, ABC Corp, 2021-2023" required></textarea>
+                </div>
+                <button type="button" onclick="addField('experience')">Add Experience</button>
+            </section>
+
+            <!-- Skills -->
+            <section class="form-section">
+                <h2>Skills</h2>
+                <div id="skills-fields">
+                    <input type="text" name="skills[]" placeholder="e.g., Python" required>
+                </div>
+                <button type="button" onclick="addField('skills')">Add Skill</button>
+            </section>
+
+            <!-- Languages -->
+            <section class="form-section">
+                <h2>Languages</h2>
+                <div id="languages-fields">
+                    <input type="text" name="languages[]" placeholder="e.g., English (Fluent)" required>
+                </div>
+                <button type="button" onclick="addField('languages')">Add Language</button>
+            </section>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+    </div>
+
+    <script>
+        function addField(type) {
+            const container = document.getElementById(`${type}-fields`);
+            const input = type === 'skills' || type === 'languages' ? 
+                document.createElement('input') : 
+                document.createElement('textarea');
+            input.name = `${type}[]`;
+            input.placeholder = type === 'skills' ? 'e.g., Python' : 
+                type === 'languages' ? 'e.g., English (Fluent)' : 
+                type === 'education' ? 'e.g., BSc Computer Science, XYZ University, 2020' : 
+                'e.g., Software Engineer, ABC Corp, 2021-2023';
+            input.required = true;
+            container.appendChild(input);
+        }
+    </script>
+</body>
+</html>
